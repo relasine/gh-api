@@ -1,0 +1,114 @@
+// TYPOGRAPHY //
+$font-family-sans-serif: "Open Sans", sans-serif;
+@mixin font-weight($weight) {
+  $weights: (
+    light: 300,
+    regular: 400,
+    heavy: 600,
+    very-heavy: 800,
+  );
+
+  $output: $weight;
+  @if map-has-key($weights, $weight) {
+    $output: map-get($weights, $weight);
+  }
+
+  font-weight: $output;
+}
+
+@mixin font-size($size) {
+  $sizes: (
+    tiny: 14px,
+    extra-short: 16px,
+    short: 16px,
+    regular: 20px,
+    tall: 24px,
+    extra-tall: 28px,
+    giant: 32px,
+  );
+
+  $output: $size;
+  @if map-has-key($sizes, $size) {
+    $output: map-get($sizes, $size);
+  }
+
+  font-size: $output;
+}
+
+// COLOR //
+$dark-blue: #12232e;
+$light-blue: #007cc7;
+$very-light-blue: #4da8da;
+$dark-blue-shadow: #203647;
+$ultra-blue-shadow: #eefbfb;
+$light-blue-shadow: #006cae;
+$required-red: #f57362;
+
+$gray-0: #f2f2f2;
+$gray-1: #f3f3f3;
+$gray-2: #c1c1c1;
+$gray-3: #a9a9a9;
+$gray-4: #919191;
+$gray-5: #797979;
+$gray-6: #606060;
+$gray-7: #484848;
+$gray-8: #303030;
+$gray-9: #181818;
+$gray-10: #333333;
+
+@mixin color($color) {
+  $colors: (
+    dark-blue: $dark-blue,
+    light-blue: $light-blue,
+    very-light-blue: $very-light-blue,
+    dark-blue-shadow: $dark-blue-shadow,
+    light-blue-shadow: $light-blue-shadow,
+    required-red: $required-red,
+    gray-0: $gray-0,
+    gray-1: $gray-1,
+    gray-2: $gray-2,
+    gray-3: $gray-3,
+    gray-4: $gray-4,
+    gray-5: $gray-5,
+    gray-6: $gray-6,
+    gray-7: $gray-7,
+    gray-8: $gray-8,
+    gray-9: $gray-9,
+    gray-10: $gray-10,
+  );
+
+  $output: $color;
+  @if map-has-key($colors, $color) {
+    $output: map-get($colors, $color);
+  }
+
+  color: $output;
+}
+
+@mixin background-color($color) {
+  $colors: (
+    dark-blue: $dark-blue,
+    light-blue: $light-blue,
+    very-light-blue: $very-light-blue,
+    dark-blue-shadow: $dark-blue-shadow,
+    light-blue-shadow: $light-blue-shadow,
+    gray-0: $gray-0,
+    gray-1: $gray-1,
+    gray-2: $gray-2,
+    gray-3: $gray-3,
+    gray-4: $gray-4,
+    gray-5: $gray-5,
+    gray-6: $gray-6,
+    gray-7: $gray-7,
+    gray-8: $gray-8,
+    gray-9: $gray-9,
+    gray-10: $gray-10,
+  );
+
+  $output: $color;
+  @if map-has-key($colors, $color) {
+    $output: map-get($colors, $color);
+  }
+
+  background-color: $output;
+}
