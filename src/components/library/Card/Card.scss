@@ -1,0 +1,73 @@
+@import "../../../styles/global-styles.scss";
+
+.gh-card {
+  font-family: $font-family-sans-serif;
+  display: flex;
+  align-items: center;
+  max-width: 900px;
+
+  @media screen and (max-width: 1000px) {
+    display: block;
+    width: 300px;
+    margin-bottom: 16px;
+  }
+
+  &__avatar {
+    width: 160px;
+    height: 160px;
+    display: block;
+
+    @media screen and (max-width: 1000px) {
+      width: 300px;
+      height: 300px;
+    }
+  }
+
+  &__content {
+    margin-top: 0;
+    border-left: solid 1px $gray-10;
+    margin-left: 16px;
+    padding-left: 16px;
+    height: 150px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    max-width: 500px;
+
+    @media screen and (max-width: 1000px) {
+      width: 300px;
+      margin: 0;
+      padding: 16px;
+      display: block;
+      border: none;
+      height: auto;
+    }
+
+    h4 {
+      font-size: 20px;
+      @media screen and (max-width: 1000px) {
+        padding-bottom: 16px;
+      }
+    }
+  }
+
+  &__label {
+    @include font-weight("heavy");
+  }
+
+  &__link {
+    text-decoration: none;
+    @include color("light-blue-shadow");
+  }
+
+  .gh-button {
+    align-self: center;
+    margin-left: auto;
+
+    @media screen and (max-width: 1000px) {
+      margin: 0 16px 16px;
+      display: block;
+      text-align: center;
+    }
+  }
+}
