@@ -1,0 +1,24 @@
+@import "../../../styles/global-styles.scss";
+
+.gh-input {
+  height: 48px;
+  font-family: $font-family-sans-serif;
+  padding-left: 16px;
+  border: 1px solid $gray-10;
+
+  &--warning {
+    border: $required-red solid 1px;
+  }
+}
+
+.gh-input-label {
+  font-family: $font-family-sans-serif;
+  display: block;
+  @include font-weight("light");
+  padding-bottom: 4px;
+
+  &__star {
+    @include color("required-red");
+    padding-left: 4px;
+  }
+}
