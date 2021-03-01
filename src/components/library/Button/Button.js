@@ -7,12 +7,14 @@ const Button = ({
   className = "",
   version = "primary",
   style = {},
+  type,
 }) => {
   return (
     <button
       onClick={onClick}
       className={`gh-button ${className} ${version && `gh-button--${version}`}`}
       style={{ ...style }}
+      type={type}
     >
       {children}
     </button>

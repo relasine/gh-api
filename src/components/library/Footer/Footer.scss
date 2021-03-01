@@ -1,0 +1,12 @@
+@import "../../../styles/global-styles.scss";
+
+.gh-footer {
+  padding: 8px;
+  margin-top: auto;
+  @include font-weight("light");
+  @include background-color("gray-2");
+
+  &__text {
+    text-align: center;
+  }
+}

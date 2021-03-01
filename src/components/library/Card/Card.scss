@@ -5,11 +5,14 @@
   display: flex;
   align-items: center;
   max-width: 900px;
+  margin: 0 auto 48px;
 
   @media screen and (max-width: 1000px) {
-    display: block;
-    width: 300px;
-    margin-bottom: 16px;
+    flex-direction: column;
+    width: 250px;
+    max-width: 250px;
+    margin: 0 16px 48px;
+    flex: 1;
   }
 
   &__avatar {
@@ -18,14 +21,14 @@
     display: block;
 
     @media screen and (max-width: 1000px) {
-      width: 300px;
-      height: 300px;
+      width: 250px;
+      height: 250px;
     }
   }
 
   &__content {
     margin-top: 0;
-    border-left: solid 1px $gray-10;
+    border-left: solid 1px $gray-8;
     margin-left: 16px;
     padding-left: 16px;
     height: 150px;
@@ -35,7 +38,7 @@
     max-width: 500px;
 
     @media screen and (max-width: 1000px) {
-      width: 300px;
+      width: 250px;
       margin: 0;
       padding: 16px;
       display: block;
@@ -63,11 +66,13 @@
   .gh-button {
     align-self: center;
     margin-left: auto;
+    margin-top: 0;
 
     @media screen and (max-width: 1000px) {
-      margin: 0 16px 16px;
+      margin: auto 16px 16px;
       display: block;
       text-align: center;
+      width: 100%;
     }
   }
 }

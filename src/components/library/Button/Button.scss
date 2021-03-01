@@ -27,7 +27,7 @@
     @include color("gray-8");
 
     &:hover {
-      @include background-color("gray-2");
+      @include background-color("gray-3");
       @include color("gray-8");
     }
   }

@@ -1,14 +1,33 @@
 import React, { useEffect } from "react";
 import "./App.scss";
 import useSearchRepos from "../../../utils/hooks/useSearchRepos";
+
+import Hero from "../../library/Hero/Hero";
+import Footer from "../../library/Footer/Footer";
+import Routing from "../Routing/Routing";
+
 const App = () => {
-  const { results, status, setQuery } = useSearchRepos();
+  const {
+    results,
+    setQuery,
+    status,
+    sort,
+    handleSortChange,
+  } = useSearchRepos();
 
-  useEffect(() => {
-    setQuery("pitch-battles-frontend");
-  }, []);
-
-  return <div className="App">App</div>;
+  return (
+    <div className="App">
+      <Hero />
+      <Routing
+        results={results}
+        setQuery={setQuery}
+        status={status}
+        sort={sort}
+        handleSortChange={handleSortChange}
+      />
+      <Footer />
+    </div>
+  );
 };
 
 export default App;

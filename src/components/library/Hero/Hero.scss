@@ -1,0 +1,51 @@
+@import "../../../styles/global-styles.scss";
+
+.gh-hero {
+  @include background-color("dark-blue");
+  @include color("gray-1");
+
+  h1 {
+    text-align: center;
+    padding-top: 24px;
+  }
+  &__search {
+    width: 380px;
+    margin: 24px auto;
+
+    @media screen and (max-width: 500px) {
+      width: 400px;
+    }
+
+    @media screen and (max-width: 400px) {
+      width: 100%;
+    }
+
+    .gh-input {
+      width: 256px;
+
+      @media screen and (max-width: 500px) {
+        width: 90%;
+        margin: auto;
+        display: block;
+      }
+
+      &-label {
+        @media screen and (max-width: 500px) {
+          width: 90%;
+          margin: auto;
+        }
+      }
+    }
+
+    .gh-button {
+      margin-left: 20px;
+
+      @media screen and (max-width: 500px) {
+        display: block;
+        width: 90%;
+
+        margin: 8px auto 0;
+      }
+    }
+  }
+}

@@ -8,32 +8,46 @@ const Select = ({
   name,
   id,
   label,
-  placeholder = "-",
+  defaultValue,
 }) => {
   const renderOptions = () => {
-    const withPlaceholder = ["-", ...options];
-    return withPlaceholder.map((option) => {
-      return <option className={"gh-option"}>{option}</option>;
-    });
+    if (defaultValue) {
+      const withdefaultValue = ["-", ...options];
+      return withdefaultValue.map((option) => {
+        return (
+          <option className={"gh-option"} key={option}>
+            {option}
+          </option>
+        );
+      });
+    } else {
+      return options.map((option) => {
+        return (
+          <option className={"gh-option"} key={option}>
+            {option}
+          </option>
+        );
+      });
+    }
   };
 
   return (
-    <>
+    <div className="gh-select__wrapper">
       {label && name && (
-        <label className="gh-select__label" for={name}>
+        <label className="gh-select__label" htmlFor={name}>
           {label}
         </label>
       )}
       <select
         onChange={onChange}
-        value={value || placeholder}
+        value={value || defaultValue}
         name={name}
         id={id}
         className="gh-select"
       >
         {renderOptions()}
       </select>
-    </>
+    </div>
   );
 };
 

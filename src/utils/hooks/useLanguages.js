@@ -4,10 +4,21 @@ const useLanguages = (results) => {
   const [language, setLanguage] = useState(null);
   const [languages, setLanguages] = useState(null);
 
+  const handleLanguageChange = (e) => {
+    if (e.target.value === "-") {
+      setLanguage(null);
+    } else {
+      setLanguage(e.target.value);
+    }
+  };
+
   useEffect(() => {
     const getLanguages = () => {
       const allLanguages = results?.reduce((allLanguages, result) => {
-        if (!allLanguages.includes(result?.language)) {
+        if (
+          !allLanguages.includes(result?.language) &&
+          result?.language?.length
+        ) {
           allLanguages.push(result.language);
         }
 
@@ -24,7 +35,7 @@ const useLanguages = (results) => {
     }
   }, [results]);
 
-  return { language, languages, setLanguage };
+  return { language, languages, handleLanguageChange };
 };
 
 export default useLanguages;

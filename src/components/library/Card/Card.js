@@ -3,20 +3,24 @@ import "./Card.scss";
 import Link from "../Button/Link";
 import noAvatar from "../../../assets/images/no-ava.png";
 
-const Card = ({
-  repoName,
-  ownerName,
-  ownerURL,
-  repoURL,
-  description,
-  homepage,
-  stars,
-  avatarURL,
-  repoID,
-}) => {
+const Card = ({ content = {} }) => {
+  const {
+    repoName,
+    ownerName,
+    ownerURL,
+    repoURL,
+    description,
+    stars,
+    avatarURL,
+    repoID,
+    language,
+  } = content;
+
   const abbreviateDescription = () => {
-    if (description.length > 90) {
-      return `${description.slice(0, 90)}...`;
+    if (description?.length > 90) {
+      return `${description?.slice(0, 90)}...`;
+    } else if (!description || !description?.length) {
+      return "None";
     } else {
       return description;
     }
@@ -52,6 +56,12 @@ const Card = ({
             {ownerName}
           </a>
         </p>
+        <p className="gh-card__repo-language">
+          <span className="gh-card__label gh-card__label--language">
+            Language:{" "}
+          </span>
+          {language}
+        </p>
         <p className="gh-card__description" max-length="90">
           <span className="gh-card__label gh-card__label--description">
             Description:{" "}
@@ -62,15 +72,8 @@ const Card = ({
           <span className="gh-card__stars_label gh-card__label">Stars: </span>{" "}
           {stars}
         </p>
-        <a
-          href={homepage}
-          target="__blank"
-          className="gh-card__homepage-link gh-card__link gh-card__label"
-        >
-          Homepage
-        </a>
       </section>
-      <Link to={`/repo-details/${repoID}`}>Learn More</Link>
+      <Link to={`/details/${repoID}`}>Learn More</Link>
     </article>
   );
 };

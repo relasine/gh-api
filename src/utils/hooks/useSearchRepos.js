@@ -1,42 +1,52 @@
 import { useState, useEffect } from "react";
 import { Octokit } from "@octokit/core";
 import token from "../../utils/token";
-import statuses from "../../utils/statuses";
 
 const useSearchRepos = () => {
-  const { ready, fetching, error, success } = statuses;
-
   const [results, setResults] = useState(null);
-  const [status, setStatus] = useState(ready);
+  const [status, setStatus] = useState("ready");
   const [query, setQuery] = useState(null);
+  const [sort, setSort] = useState("best-match");
+
+  // Sort is worked into the fetch logic for the case in which the volume of results in the response is below the total volume of responses in github, which could potenttially lead to repos with higher star counts didn't make the cut of best match criteria. It would obviously be much easier to simply sort from the ResultsPage, but I felt that it was important to leave room for this responsiblity.
+
+  const handleSortChange = (e) => {
+    setSort(e.target.value);
+  };
 
   useEffect(() => {
-    // Normally I'd reach for axios for fetch calls or just the fetch api, but the docs recommended Octokit
+    // Normally I'd reach for axios for fetch calls or just the fetch api, but the docs recommended Octokit, so here we are!
     const octokit = new Octokit({ auth: token });
 
     const getData = async () => {
-      setStatus();
+      setStatus("loading");
 
       try {
-        const data = await octokit.request("GET /search/repositories", {
+        const response = await octokit.request("GET /search/repositories", {
           q: query,
+          sort: sort,
         });
 
-        setResults(data);
-        setStatus(success);
-        setQuery(null);
+        setResults(response?.data?.items);
+        setStatus("success");
       } catch (e) {
         console.log(e);
-        setStatus(error);
+        setStatus("error");
       }
     };
 
     if (query) {
-      getData(fetching);
+      getData();
     }
-  }, [query, statuses]);
+  }, [query, sort]);
 
-  return { results, setQuery, ready, fetching, error, success, status };
+  return {
+    results,
+    setQuery,
+    status,
+    sort,
+    handleSortChange,
+  };
 };
 
 export default useSearchRepos;

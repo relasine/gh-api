@@ -19,4 +19,11 @@
     @include font-weight("light");
     padding-bottom: 4px;
   }
+
+  &__wrapper {
+    @media screen and (max-width: 600px) {
+      margin: 0 auto 32px;
+      width: 200px;
+    }
+  }
 }

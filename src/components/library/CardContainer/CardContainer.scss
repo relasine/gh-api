@@ -1,0 +1,23 @@
+@import "../../../styles/global-styles.scss";
+
+.gh-card-container {
+  padding: 32px 32px 0;
+
+  @media screen and (max-width: 1000px) {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+  }
+
+  &__sort-and-filter {
+    width: 500px;
+    margin: 0 auto 48px;
+    display: flex;
+    justify-content: space-between;
+
+    @media screen and (max-width: 600px) {
+      display: block;
+      width: auto;
+    }
+  }
+}
