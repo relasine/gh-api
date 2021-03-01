@@ -1,0 +1,22 @@
+@import "../../../styles/global-styles.scss";
+
+.gh-select {
+  height: 48px;
+  font-family: $font-family-sans-serif;
+  border: 1px solid $gray-10;
+  min-width: 200px;
+  padding-left: 12px;
+  font-size: 20px;
+  appearance: none;
+  background-image: url(./arrow-down.png);
+  background-repeat: no-repeat;
+  background-position: right;
+  background-position-x: 174px;
+
+  &__label {
+    font-family: $font-family-sans-serif;
+    display: block;
+    @include font-weight("light");
+    padding-bottom: 4px;
+  }
+}
