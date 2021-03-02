@@ -13,7 +13,6 @@ const Routing = ({ results, setQuery, status, sort, handleSortChange }) => {
         path="/results/:query"
         render={(props) => (
           <ResultsPage
-            results={results}
             setQuery={setQuery}
             status={status}
             sort={sort}
@@ -25,7 +24,7 @@ const Routing = ({ results, setQuery, status, sort, handleSortChange }) => {
       <Route
         exact
         path="/details/:id"
-        render={(props) => <DetailsPage {...props} results={results} />}
+        render={(props) => <DetailsPage {...props} />}
       />
       <Route component={FourOhFourPage} />
     </Switch>
