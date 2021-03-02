@@ -70,6 +70,7 @@ Since the Github API that was linked didn't list a way to query individual repos
 - Investigate a way to query Repos by their id for the `DetailsPage`
 - Add component testing
 - Clean up JSX on the DetailsPage
+- Add ReactHelmet for site metadata, title, etc
 
 ### Who I am
 
