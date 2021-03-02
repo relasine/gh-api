@@ -15,7 +15,7 @@ const TextInput = ({
   return (
     <>
       {label && name && (
-        <label className="gh-input-label" for={name}>
+        <label className="gh-input-label" htmlFor={name}>
           {label}
           {required && <span className="gh-input-label__star">*</span>}
         </label>

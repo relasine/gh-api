@@ -112,3 +112,11 @@ $gray-10: #333333;
 
   background-color: $output;
 }
+
+@mixin organism-padding() {
+  padding: 48px calc((100vw - 1200px) / 2);
+
+  @media screen and (max-width: 1272px) {
+    padding: 48px 36px;
+  }
+}
