@@ -1,5 +1,5 @@
 import { Octokit } from "@octokit/core";
-import token from "./token";
+const token = process.env.REACT_APP_GH_KEY;
 
 // I do not like this implementation, but the Jest update has royally thrown a wrench in the works of normal mocking, so here we are //
 

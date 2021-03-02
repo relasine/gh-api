@@ -1,6 +1,5 @@
 import { useState, useEffect } from "react";
 import octokit from "../makeOctokit";
-import token from "../../utils/token";
 
 const useSearchRepos = () => {
   const [results, setResults] = useState(null);
