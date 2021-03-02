@@ -9,7 +9,10 @@ Github Repository Search Tool is a React application that allows you to search a
 1. Clone down the application repo: `git clone https://github.com/relasine/gh-api.git`
 2. Navigate into the root of the directory: `cd gh-api`
 3. Install dependencies: `npm install`
-4. Start up the development server: `npm start`
+4. Add a environment file: `touch .env`
+5. You'll need a personal access token to use this application for accessing Github. Instructions on getting one can be found [here](https://docs.github.com/en/github/authenticating-to-github/creating-a-personal-access-token)
+6. Open your .env file and add this line of code: `REACT_APP_GH_KEY=access-code-goes-here`. It should look something like It should look something like `REACT_APP_GH_KEY=12345678910`. No quotes around the token.
+7. Start up the development server: `npm start`
 
 ### Running the test suite
 
