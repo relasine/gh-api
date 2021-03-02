@@ -8,6 +8,12 @@
     text-align: center;
     padding: 24px 16px 0;
   }
+
+  &__home-link {
+    text-decoration: none;
+    @include color("gray-1");
+  }
+
   &__search {
     width: 380px;
     margin: 24px auto;

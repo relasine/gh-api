@@ -1,0 +1,14 @@
+@import "../../../styles/global-vars.scss";
+
+.gh-basic-page {
+  @include organism-padding();
+  text-align: center;
+  padding-bottom: 48px;
+  h3 {
+    padding-bottom: 24px;
+  }
+
+  p {
+    padding-bottom: 16px;
+  }
+}

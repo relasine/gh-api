@@ -1,13 +1,19 @@
 import React from "react";
 import { Switch, Route } from "react-router-dom";
-import HomePage from "../../pages/HomePage/HomePage";
+import BasicPage from "../../pages/BasicPage/BasicPage";
 import DetailsPage from "../../pages/DetailsPage/DetailsPage";
 import ResultsPage from "../../pages/ResultsPage/ResultsPage";
-import FourOhFourPage from "../../pages/FourOhFourPage/FourOhFourPage";
+import ErrorPage from "../../pages/ErrorPage/ErrorPage";
+import homeContent from "../../../content/home";
+
 const Routing = () => {
   return (
     <Switch>
-      <Route path="/" component={HomePage} exact />
+      <Route
+        path="/"
+        render={() => <BasicPage content={homeContent} />}
+        exact
+      />
       <Route
         exact
         path="/results/:query"
@@ -18,7 +24,14 @@ const Routing = () => {
         path="/details/:id"
         render={(props) => <DetailsPage {...props} />}
       />
-      <Route component={FourOhFourPage} />
+      <Route
+        render={() => (
+          <ErrorPage
+            header="404 Error"
+            text="Looks like you're lost, friend."
+          />
+        )}
+      />
     </Switch>
   );
 };

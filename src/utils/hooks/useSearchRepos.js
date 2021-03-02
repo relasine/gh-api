@@ -1,5 +1,5 @@
 import { useState, useEffect } from "react";
-import { Octokit } from "@octokit/core";
+import octokit from "../makeOctokit";
 import token from "../../utils/token";
 
 const useSearchRepos = () => {
@@ -16,8 +16,6 @@ const useSearchRepos = () => {
 
   useEffect(() => {
     // Normally I'd reach for axios for fetch calls or just the fetch api, but the docs recommended Octokit, so here we are! //
-
-    const octokit = new Octokit({ auth: token });
 
     const getData = async () => {
       setStatus("loading");
@@ -62,6 +60,7 @@ const useSearchRepos = () => {
     status,
     sort,
     handleSortChange,
+    query,
   };
 };
 

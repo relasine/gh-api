@@ -35,7 +35,7 @@ const useLanguages = (results) => {
     }
   }, [results]);
 
-  return { language, languages, handleLanguageChange };
+  return { language, languages, handleLanguageChange, setLanguage };
 };
 
 export default useLanguages;

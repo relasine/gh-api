@@ -3,16 +3,18 @@ import TextInput from "../TextInput/TextInput";
 import Button from "../Button/Button";
 import { useHistory } from "react-router-dom";
 import "./Hero.scss";
+import { Link } from "react-router-dom";
+
 const Hero = () => {
   const history = useHistory();
   const [input, setInput] = useState("");
 
   const handleInputChange = (e) => {
-    setInput(e.target.value);
+    setInput(e?.target?.value);
   };
 
   const handleSubmit = (e) => {
-    e.preventDefault();
+    e?.preventDefault();
 
     if (!input?.length) {
       return;
@@ -25,7 +27,11 @@ const Hero = () => {
 
   return (
     <section className="gh-hero">
-      <h1>Github Repository Search Tool</h1>
+      <h1>
+        <Link to="/" className="gh-hero__home-link">
+          Github Repository Search Tool
+        </Link>
+      </h1>
       <form className="gh-hero__search" onSubmit={handleSubmit}>
         <TextInput
           value={input}

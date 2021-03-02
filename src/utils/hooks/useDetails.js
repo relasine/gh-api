@@ -74,6 +74,8 @@ const useDetails = (results, match, history) => {
           setStorageChecked(true);
           formatAndSetContent(matchingRepo);
         }
+      } else {
+        history.push("/");
       }
     };
 
@@ -90,7 +92,14 @@ const useDetails = (results, match, history) => {
     history,
   ]);
 
-  return { repo };
+  return {
+    repo,
+    setRepo,
+    noMatchInState,
+    setNoMatchInState,
+    storageChecked,
+    setStorageChecked,
+  };
 };
 
 export default useDetails;

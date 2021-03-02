@@ -15,13 +15,26 @@ Github Repository Search Tool is a React application that allows you to search a
 
 To run the test suite, navigate into the repo's root and use `npm test`
 
+### Site Component Structure
+
+- `App`: manages search results and renders the `Hero`, `Routing`, and `Footer` components.
+  - `Hero`: renders the application hero as well as the search `TextInput`.
+  - `Footer`: renders a simple application footer.
+  - `Routing`: renders `Route` components for `BasicPage - home`, `ResultsPage`, `DetailsPage`, and `ErrorPage - 404`.
+    - `BasicPage`: simple page for rendering a header and a series of `<p>` elements.
+    - `ResultsPage`: handles filtering for results and renders either `CardContainer`, `Loading`, `BasicPage - no results`. or `ErrorPage - 500`
+      - `CardContainer`: iterates over results and renders them as `Card` components as well as the sort and filter `Select` components.
+      - `Loading`: Renders a simple loading animation.
+    - `DetailsPage`: locates the corresponding result object and renders it on the page.
+  - `ErrorPage`: Provides some text and a `Link` to the home page.
+
 ### Technologies
 
 - [React 17](https://www.reactjs.org)
-- [React Hooks API](https://reactjs.org/docs/hooks-intro.html)
+- [React Hooks API](https://reactjs.org/docs/hooks-intro.html) - for `useState`, `useEffect`, `useCallback`, and `useContext`
 - [React Router](https://reactjs.org/docs/hooks-intro.html)
 - [SASS](https://sass-lang.com/)
-- [Octokit Core](https://github.com/octokit/core.js/)
+- [Octokit Core](https://github.com/octokit/core.js/) - for Github API interaction
 - [Jest](https://jestjs.io/)
 - [React Testing Library](https://testing-library.com/docs/react-testing-library/intro/)
 

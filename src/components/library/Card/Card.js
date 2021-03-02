@@ -2,6 +2,7 @@ import React from "react";
 import "./Card.scss";
 import Link from "../Button/Link";
 import noAvatar from "../../../assets/images/no-ava.png";
+import PropTypes from "prop-types";
 
 const Card = ({ content = {} }) => {
   const {
@@ -18,7 +19,7 @@ const Card = ({ content = {} }) => {
 
   const abbreviateDescription = () => {
     if (description?.length > 90) {
-      return `${description?.slice(0, 90)}...`;
+      return `${description?.slice(0, 100)}...`;
     } else if (!description || !description?.length) {
       return "None";
     } else {
@@ -43,7 +44,7 @@ const Card = ({ content = {} }) => {
             target="__blank"
             className="gh-card__repo-link gh-card__link"
           >
-            {repoName}
+            {repoName?.replace("_", " ")}
           </a>
         </h4>
         <p className="gh-card__repo-owner">
@@ -79,3 +80,15 @@ const Card = ({ content = {} }) => {
 };
 
 export default Card;
+
+Card.propTypes = {
+  repoName: PropTypes.string,
+  ownerName: PropTypes.string,
+  ownerURL: PropTypes.string,
+  repoURL: PropTypes.string,
+  description: PropTypes.string,
+  stars: PropTypes.string,
+  avatarURL: PropTypes.string,
+  repoID: PropTypes.number,
+  language: PropTypes.string,
+};

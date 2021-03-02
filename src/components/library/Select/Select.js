@@ -21,7 +21,7 @@ const Select = ({
         );
       });
     } else {
-      return options.map((option) => {
+      return options?.map((option) => {
         return (
           <option className={"gh-option"} key={option}>
             {option}

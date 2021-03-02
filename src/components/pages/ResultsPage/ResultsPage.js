@@ -4,6 +4,9 @@ import CardContainer from "../../library/CardContainer/CardContainer";
 import Loading from "../../library/Loading/Loading";
 import { ResultsContext } from "../../structural/App/App";
 import PropTypes from "prop-types";
+import ErrorPage from "../ErrorPage/ErrorPage";
+import BasicPage from "../BasicPage/BasicPage";
+import noResultsContent from "../../../content/noResults";
 
 const ResultsPage = ({ match }) => {
   const { results, setQuery, status } = useContext(ResultsContext);
@@ -16,15 +19,23 @@ const ResultsPage = ({ match }) => {
   }, [match, setQuery]);
 
   return (
-    <section className="gh-results-page">
+    <section
+      className={`gh-results-page ${
+        status === "success" && (results?.length === 0 || !results?.length)
+          ? "gh-results-page--no-results"
+          : "gh-results-page--results"
+      }`}
+    >
       {status === "success" && results?.length > 0 && (
         <CardContainer cards={results} status={status} />
       )}
       {status === "success" && (results?.length === 0 || !results?.length) && (
-        <p>No Results</p>
+        <BasicPage content={noResultsContent} />
       )}
       {status === "loading" && <Loading />}
-      {status === "error" && <p>Error</p>}
+      {status === "error" && (
+        <ErrorPage header="500 Error" text="Something went wrong..." />
+      )}
     </section>
   );
 };

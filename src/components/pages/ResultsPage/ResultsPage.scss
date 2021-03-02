@@ -1,5 +1,11 @@
 @import "../../../styles/global-styles.scss";
 
 .gh-results-page {
-  padding: 32px;
+  &--results {
+    @include organism-padding();
+  }
+
+  &--no-results {
+    padding: 0;
+  }
 }
