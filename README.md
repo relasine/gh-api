@@ -63,6 +63,14 @@ Since the Github API that was linked didn't list a way to query individual repos
 - [Jest](https://jestjs.io/)
 - [React Testing Library](https://testing-library.com/docs/react-testing-library/intro/)
 
+### Future Improvements
+
+- Address the "flashing" that happens on the ResultsPage when it starts out consuming the data in state, then immediately loses that state when the call to Github kicks off.
+- Dig more into the Github API so more data can be displayed
+- Investigate a way to query Repos by their id for the `DetailsPage`
+- Add component testing
+- Clean up JSX on the DetailsPage
+
 ### Who I am
 
 I am Kevin Simpson, a Frontend Engineer from Thornton, Colorado.
