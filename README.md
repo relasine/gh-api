@@ -15,7 +15,29 @@ Github Repository Search Tool is a React application that allows you to search a
 
 To run the test suite on usage of React Hooks, navigate into the repo's root and use `npm test`
 
-### Site Component Structure
+### Some decisions I made on this project
+
+There are a few decisions I made on this project that I think somewhat cut across the grain of the common wisdom of React and JavaScript. I wanted to take a minute to discuss a few of them.
+
+##### Why Context?
+
+The Context API is completely unnecessary on this project, but it's listed in the job description as required, and so I used it just to show that I could. I have historically reached for Redux to avoid prop drilling, but now that I've tried Context, I can see why people like it so much more.
+
+##### Sorting and refreshing results
+
+Switching between 'best-match' and 'stars' in the sort dropdown causes the application to call Github and completely refresh the results in state. This seems pretty silly on the surface since sorting in `CardContainer` would be way easier, but there are some issues with this approach, specifically that a default query to Github only returns the first 100 results that match the criteria.
+
+If I were to query on best-match, then switch to sort without refreshing the results, there are potentially results that do not meet the top 100 of best-match criteria, but do have more stars than results that do match best-match criteria. Refreshing the results fixes this.
+
+##### Why bother with the `makeOctokit` file?
+
+Jest 26 broke the way that mocks have historically worked. I attempted the known easy fixes here, specifically adding the `resetMocks` configuration in `package.json`, but that wouldn't take. Using spys still works, but that required that I move the instantiation of Octokit into its own file.
+
+##### localStorage
+
+Since the Github API that was linked didn't list a way to query individual repos by their id, I needed a way to allow users to refresh the application while on the `DetailsPage` without having to backtrack to the `ResultsPage` and do a new search. It also added the benefit off stopping the need off having to fetch on Github for the same query string as the previous fetch.
+
+### Site component structure
 
 - `App`: manages search results and renders the `Hero`, `Routing`, and `Footer` components.
   - `Hero`: renders the application hero as well as the search `TextInput`.
