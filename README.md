@@ -6,7 +6,7 @@ Github Repository Search Tool is a React application that allows you to search a
 
 ### Getting started
 
-1. Clone down the application repo: `git clone git@github.com:relasine/gh-api.git`
+1. Clone down the application repo: `git clone https://github.com/relasine/gh-api.git`
 2. Navigate into the root of the directory: `cd gh-api`
 3. Install dependencies: `npm install`
 4. Start up the development server: `npm start`
