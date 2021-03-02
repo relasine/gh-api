@@ -13,7 +13,7 @@ Github Repository Search Tool is a React application that allows you to search a
 
 ### Running the test suite
 
-To run the test suite, navigate into the repo's root and use `npm test`
+To run the test suite on usage of React Hooks, navigate into the repo's root and use `npm test`
 
 ### Site Component Structure
 
