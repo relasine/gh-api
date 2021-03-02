@@ -1,5 +1,6 @@
 import React from "react";
 import "./Button.scss";
+import PropTypes from "prop-types";
 
 const Button = ({
   children,
@@ -22,3 +23,11 @@ const Button = ({
 };
 
 export default Button;
+
+Button.propTypes = {
+  onClick: PropTypes.func,
+  className: PropTypes.string,
+  version: PropTypes.string,
+  style: PropTypes.object,
+  type: PropTypes.string,
+};

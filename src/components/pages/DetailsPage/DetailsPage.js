@@ -2,6 +2,7 @@ import React, { useContext } from "react";
 import useDetails from "../../../utils/hooks/useDetails";
 import "./DetailsPage.scss";
 import { ResultsContext } from "../../structural/App/App";
+import PropTypes from "prop-types";
 
 const DetailsPage = ({ match, history }) => {
   const { results } = useContext(ResultsContext);
@@ -111,3 +112,8 @@ const DetailsPage = ({ match, history }) => {
 };
 
 export default DetailsPage;
+
+DetailsPage.propTypes = {
+  history: PropTypes.object.isRequired,
+  match: PropTypes.object.isRequired,
+};

@@ -1,5 +1,6 @@
 import React from "react";
 import "./TextInput.scss";
+import PropTypes from "prop-types";
 
 const TextInput = ({
   value,
@@ -36,3 +37,16 @@ const TextInput = ({
 };
 
 export default TextInput;
+
+TextInput.propTypes = {
+  value: PropTypes.string.isRequired,
+  onChange: PropTypes.func.isRequired,
+  style: PropTypes.object,
+  className: PropTypes.string,
+  name: PropTypes.string,
+  placeholder: PropTypes.string,
+  id: PropTypes.string,
+  defaultValue: PropTypes.string,
+  required: PropTypes.bool,
+  warning: PropTypes.bool,
+};

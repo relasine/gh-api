@@ -3,9 +3,10 @@ import "./ResultsPage.scss";
 import CardContainer from "../../library/CardContainer/CardContainer";
 import Loading from "../../library/Loading/Loading";
 import { ResultsContext } from "../../structural/App/App";
+import PropTypes from "prop-types";
 
-const ResultsPage = ({ match, status, sort, handleSortChange }) => {
-  const { results, setQuery } = useContext(ResultsContext);
+const ResultsPage = ({ match }) => {
+  const { results, setQuery, status } = useContext(ResultsContext);
 
   // Check the address bar for a query parameter and call setQuery with it
   useEffect(() => {
@@ -17,12 +18,7 @@ const ResultsPage = ({ match, status, sort, handleSortChange }) => {
   return (
     <section className="gh-results-page">
       {status === "success" && results?.length > 0 && (
-        <CardContainer
-          cards={results}
-          handleSortChange={handleSortChange}
-          sort={sort}
-          status={status}
-        />
+        <CardContainer cards={results} status={status} />
       )}
       {status === "success" && (results?.length === 0 || !results?.length) && (
         <p>No Results</p>
@@ -34,3 +30,7 @@ const ResultsPage = ({ match, status, sort, handleSortChange }) => {
 };
 
 export default ResultsPage;
+
+ResultsPage.propTypes = {
+  match: PropTypes.object.isRequired,
+};

@@ -1,10 +1,13 @@
-import React from "react";
+import React, { useContext } from "react";
 import "./CardContainer.scss";
 import Card from "../Card/Card";
 import useLanguages from "../../../utils/hooks/useLanguages";
 import Select from "../Select/Select";
+import PropTypes from "prop-types";
+import { ResultsContext } from "../../structural/App/App";
 
-const CardContainer = ({ cards = [], sort, handleSortChange }) => {
+const CardContainer = ({ cards = [] }) => {
+  const { sort, handleSortChange } = useContext(ResultsContext);
   const { language, languages = [], handleLanguageChange } = useLanguages(
     cards
   );
@@ -63,3 +66,7 @@ const CardContainer = ({ cards = [], sort, handleSortChange }) => {
 };
 
 export default CardContainer;
+
+CardContainer.propTypes = {
+  cards: PropTypes.arrayOf(PropTypes.object),
+};

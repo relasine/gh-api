@@ -1,6 +1,7 @@
 import React from "react";
 import { Link as RouterLink } from "react-router-dom";
 import "./Button.scss";
+import PropTypes from "prop-types";
 
 const Link = ({
   to,
@@ -39,3 +40,13 @@ const Link = ({
 };
 
 export default Link;
+
+Link.propTypes = {
+  onClick: PropTypes.func,
+  className: PropTypes.string,
+  version: PropTypes.string,
+  style: PropTypes.object,
+  type: PropTypes.string,
+  to: PropTypes.string,
+  href: PropTypes.string,
+};

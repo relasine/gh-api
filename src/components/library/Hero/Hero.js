@@ -18,6 +18,7 @@ const Hero = () => {
       return;
     }
 
+    // Utilize the address bar to set off fetch calls to Github //
     history.push(`/results/${input}`);
     setInput("");
   };

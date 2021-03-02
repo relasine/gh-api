@@ -1,6 +1,6 @@
 import React from "react";
 import "./Select.scss";
-
+import PropTypes from "prop-types";
 const Select = ({
   options = [],
   onChange,
@@ -52,3 +52,13 @@ const Select = ({
 };
 
 export default Select;
+
+Select.propTypes = {
+  options: PropTypes.array,
+  onChange: PropTypes.func.isRequired,
+  name: PropTypes.string,
+  id: PropTypes.string,
+  label: PropTypes.string,
+  defaultValue: PropTypes.string,
+  value: PropTypes.string,
+};
